@@ -3,9 +3,15 @@ import threading
 import ssl
 import logging
 import time
+import configparser
+from pathlib import Path
+
+# Get the base directory of the project
+BASE_DIR = Path(__file__).resolve().parent.parent
 
 # Configure logging
-logging.basicConfig(filename='./logs/server.log', level=logging.DEBUG, format='%(asctime)s - %(message)s')
+log_file_path = BASE_DIR / 'logs' / 'server.log'
+logging.basicConfig(filename=log_file_path, level=logging.DEBUG, format='%(asctime)s - %(message)s')
 
 class StringSearchServer:
     """
@@ -14,22 +20,25 @@ class StringSearchServer:
     Returns: 'STRING EXISTS' or 'STRING NOT FOUND'
     
     """
-    def __init__(self):
+    def __init__(self, config_path: str):
         """
         Initialize the server
         """
+        self.config = configparser.ConfigParser()
+        self.config.read(config_path)
         self.host = '0.0.0.0'
-        self.port = 44445
-        self.file_path = '/data/200k.txt'
-        self.reread_on_query = True
-        self.ssl_enabled = False
+        self.port = int(self.config['DEFAULT']['Port'])
+        self.file_path = BASE_DIR / self.config['DEFAULT']['linuxpath']
+        self.reread_on_query = self.config['DEFAULT'].getboolean('REREAD_ON_QUERY')
+        self.ssl_enabled = self.config['SSL'].getboolean('enabled')
+        self.ssl_context = None
+        
+        if self.ssl_enabled:
+            certfile_path = self.config['SSL']['certfile']
+            keyfile_path = self.config['SSL']['keyfile']
+            self.ssl_context = ssl.create_default_context(ssl.Purpose.CLIENT_AUTH)
+            self.ssl_context.load_cert_chain(certfile=certfile_path, keyfile=keyfile_path)
 
-        # CREATE SSL CERT & KEY FILES USING OPENSSL!!!
-        """         
-            if self.ssl_enabled:
-            certfile_path = './test_cert.pem' 
-            keyfile_path = './test_key.pem' 
-        """
 
     def start_server(self):
         """Start the server & listen for connections"""
@@ -39,6 +48,8 @@ class StringSearchServer:
             logging.info(f'Server started on {self.host}:{self.port}')
             while True:
                 conn, addr = server_socket.accept()
+                if self.ssl_enabled:
+                    conn = self.ssl_context.wrap_socket(conn, server_side=True)
                 threading.Thread(target=self.handle_client, args=(conn, addr)).start()
 
     def handle_client(self, conn, addr):
@@ -83,5 +94,12 @@ class StringSearchServer:
             return False
 
 if __name__ == '__main__':
-    server = StringSearchServer()
+    config_path = BASE_DIR / 'config' / 'server_config.ini'
+    server = StringSearchServer(config_path)
+    
+    # Print the server IP address (just checking)
+    hostname = socket.gethostname()
+    ip_address = socket.gethostbyname(hostname)
+    print(f"Server is running on {ip_address}")
+    
     server.start_server()
