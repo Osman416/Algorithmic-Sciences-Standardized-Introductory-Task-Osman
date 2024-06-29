@@ -13,3 +13,72 @@
 2024-06-27 18:30:25,305 - Received query: hi from ('127.0.0.1', 60628)
 2024-06-27 18:30:25,355 - Execution time: 0.050026 seconds
 2024-06-27 18:30:25,355 - Search result sent to ('127.0.0.1', 60628)
+2024-06-28 20:35:11,902 - Server started on 0.0.0.0:44445
+2024-06-28 20:35:12,905 - Received query: 3;0;1;28;0;7;5;0; from ('127.0.0.1', 56755)
+2024-06-28 20:35:12,914 - Execution time: 0.008543 seconds
+2024-06-28 20:35:12,914 - Search result sent to ('127.0.0.1', 56755)
+2024-06-28 20:35:12,915 - Received query: non-existing-string from ('127.0.0.1', 56756)
+2024-06-28 20:35:12,975 - Execution time: 0.060592 seconds
+2024-06-28 20:35:12,975 - Search result sent to ('127.0.0.1', 56756)
+2024-06-28 21:00:40,609 - Server started on 0.0.0.0:44445
+2024-06-28 21:00:49,161 - Received query: 3;0;1;28;0;7;5;0; from ('127.0.0.1', 56935)
+2024-06-28 21:00:49,161 - Execution time: 0.000000 seconds
+2024-06-28 21:00:49,161 - Search result sent to ('127.0.0.1', 56935)
+2024-06-28 21:00:49,162 - Received query: non-existing-string from ('127.0.0.1', 56936)
+2024-06-28 21:00:49,214 - Execution time: 0.051999 seconds
+2024-06-28 21:00:49,214 - Search result sent to ('127.0.0.1', 56936)
+2024-06-28 21:01:16,730 - Received query: k from ('127.0.0.1', 56940)
+2024-06-28 21:01:16,780 - Execution time: 0.050025 seconds
+2024-06-28 21:01:16,780 - Search result sent to ('127.0.0.1', 56940)
+2024-06-28 21:01:22,320 - Received query: 3;0;1;28;0;7;5;0; from ('127.0.0.1', 56941)
+2024-06-28 21:01:22,320 - Execution time: 0.000000 seconds
+2024-06-28 21:01:22,320 - Search result sent to ('127.0.0.1', 56941)
+2024-06-28 21:01:22,321 - Received query: non-existing-string from ('127.0.0.1', 56942)
+2024-06-28 21:01:22,371 - Execution time: 0.050005 seconds
+2024-06-28 21:01:22,371 - Search result sent to ('127.0.0.1', 56942)
+2024-06-28 21:09:42,847 - Server started on 0.0.0.0:44445
+2024-06-28 21:09:43,851 - Received query: 3;0;1;28;0;7;5;0; from ('127.0.0.1', 57045)
+2024-06-28 21:09:43,851 - Execution time: 0.000000 seconds
+2024-06-28 21:09:43,851 - Search result sent to ('127.0.0.1', 57045)
+2024-06-28 21:09:43,852 - Received query: This is a string that will not be found from ('127.0.0.1', 57046)
+2024-06-28 21:09:43,903 - Execution time: 0.050030 seconds
+2024-06-28 21:09:43,903 - Search result sent to ('127.0.0.1', 57046)
+2024-06-28 21:27:59,215 - Server started on 0.0.0.0:44445
+2024-06-28 21:28:06,669 - Received query: 3;0;1;28;0;7;5;0; from ('127.0.0.1', 57186)
+2024-06-28 21:28:06,669 - Execution time: 0.000000 seconds
+2024-06-28 21:28:06,669 - Search result sent to ('127.0.0.1', 57186)
+2024-06-28 21:28:06,670 - Received query: potato from ('127.0.0.1', 57187)
+2024-06-28 21:28:06,721 - Execution time: 0.051028 seconds
+2024-06-28 21:28:06,721 - Search result sent to ('127.0.0.1', 57187)
+2024-06-28 21:44:15,539 - Received query: 3;0;1;28;0;7;5;0; from ('127.0.0.1', 57268)
+2024-06-28 21:44:15,539 - Execution time: 0.000000 seconds
+2024-06-28 21:44:15,539 - Search result sent to ('127.0.0.1', 57268)
+2024-06-28 21:44:15,540 - Received query: potato from ('127.0.0.1', 57269)
+2024-06-28 21:44:15,593 - Execution time: 0.052999 seconds
+2024-06-28 21:44:15,593 - Search result sent to ('127.0.0.1', 57269)
+2024-06-28 21:44:27,175 - Received query: 3;0;1;28;0;7;5;0; from ('127.0.0.1', 57271)
+2024-06-28 21:44:27,175 - Execution time: 0.000000 seconds
+2024-06-28 21:44:27,175 - Search result sent to ('127.0.0.1', 57271)
+2024-06-28 21:44:27,176 - Received query: potato from ('127.0.0.1', 57272)
+2024-06-28 21:44:27,226 - Execution time: 0.050001 seconds
+2024-06-28 21:44:27,226 - Search result sent to ('127.0.0.1', 57272)
+2024-06-28 21:45:02,085 - Received query: 3;0;1;28;0;7;5;0; from ('127.0.0.1', 57275)
+2024-06-28 21:45:02,085 - Execution time: 0.000000 seconds
+2024-06-28 21:45:02,085 - Search result sent to ('127.0.0.1', 57275)
+2024-06-28 21:45:02,086 - Received query: This is a string that will not be found from ('127.0.0.1', 57276)
+2024-06-28 21:45:02,136 - Execution time: 0.049723 seconds
+2024-06-28 21:45:02,137 - Search result sent to ('127.0.0.1', 57276)
+2024-06-28 21:45:18,754 - Server started on 0.0.0.0:44445
+2024-06-28 21:45:19,758 - Received query: 3;0;1;28;0;7;5;0; from ('127.0.0.1', 57281)
+2024-06-28 21:45:19,759 - Execution time: 0.000000 seconds
+2024-06-28 21:45:19,759 - Search result sent to ('127.0.0.1', 57281)
+2024-06-28 21:45:19,759 - Received query: This is a string that will not be found from ('127.0.0.1', 57282)
+2024-06-28 21:45:19,813 - Execution time: 0.053582 seconds
+2024-06-28 21:45:19,813 - Search result sent to ('127.0.0.1', 57282)
+2024-06-28 22:10:01,111 - Server started on 0.0.0.0:44445
+2024-06-28 22:10:01,114 - Received query: 3;0;1;28;0;7;5;0; from ('127.0.0.1', 57418)
+2024-06-28 22:10:01,115 - Execution time: 0.001002 seconds
+2024-06-28 22:10:01,115 - Search result sent to ('127.0.0.1', 57418)
+2024-06-28 22:10:01,116 - Received query: This is a string that will not be found from ('127.0.0.1', 57419)
+2024-06-28 22:10:01,176 - Execution time: 0.060000 seconds
+2024-06-28 22:10:01,177 - Search result sent to ('127.0.0.1', 57419)
