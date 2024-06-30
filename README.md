@@ -31,11 +31,14 @@ Running the server as a Windows Service (*linux/daemon or service requirement fr
 
 
     Start the service:
-        nssm start StringSearchServer
+        ./nssm start StringSearchServer
     Start the service:
-        nssm stop StringSearchServer
+        ./nssm stop StringSearchServer
     Remove the service:
-        nssm remove StringSearchServer
+        ./nssm remove StringSearchServer
+    View Status of the service:
+        ./nssm status StringSearchServer
+
 
     Running the Client
     To interact with the server, use the client script:
