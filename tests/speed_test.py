@@ -10,6 +10,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 sys.path.append(str(BASE_DIR / 'Server'))
 
 from server import StringSearchServer
+from reportlab.lib.pagesizes import letter
+from reportlab.platypus import SimpleDocTemplate, Paragraph, Table, TableStyle
+from reportlab.lib.styles import getSampleStyleSheet
 
 def start_server():
     """
@@ -117,6 +120,34 @@ def run_speed_test(file_sizes, query_counts):
 
     return results
 
+def generate_pdf_report(results):
+    """
+    Generate PDF report
+    Args:
+        results (list): List containing (file size, query count, average time).
+    """
+    pdf_filename = BASE_DIR / 'Speed_test_results.pdf'
+    doc = SimpleDocTemplate(str(pdf_filename), pagesize=letter)
+    styles = getSampleStyleSheet()
+    elements = []
+
+    # Title
+    elements.append(Paragraph("Speed Test Results", styles['Title']))
+
+    # Table Header
+    data = [('File Size (Lines)', 'Query Count', 'Average Execution Time (Seconds)')]
+    for size, count, time in results:
+        data.append((f"{size}k", count, f"{time:.6f}"))
+
+    # Table
+    table_style = TableStyle([('GRID', (0, 0), (-1, -1), 1, (0.5, 0.5, 0.5))])
+    table = Table(data, style=table_style)
+    elements.append(table)
+
+    # Build PDF
+    doc.build(elements)
+    print(f"PDF report generated: {pdf_filename}")
+
 if __name__ == '__main__':
     file_sizes = [10, 50, 100, 200, 500, 1000]  # Different file sizes in kB
     query_counts = [1, 10, 50, 100, 200, 500, 1000]  # Different numbers of queries
@@ -127,3 +158,5 @@ if __name__ == '__main__':
     with open(BASE_DIR / 'speed_test_results.txt', 'w') as f:
         for file_size, query_count, avg_time in results:
             f.write(f"File size: {file_size}k, Query count: {query_count}, Average time: {avg_time:.6f} seconds\n")
+
+    generate_pdf_report(results)
