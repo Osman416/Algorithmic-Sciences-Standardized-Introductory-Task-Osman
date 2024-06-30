@@ -43,6 +43,7 @@ class StringSearchServer:
     def start_server(self):
         """Start the server & listen for connections"""
         with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as server_socket:
+            server_socket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
             server_socket.bind((self.host, self.port))
             server_socket.listen()
             logging.info(f'Server started on {self.host}:{self.port}')
